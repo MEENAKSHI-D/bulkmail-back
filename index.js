@@ -3,11 +3,12 @@ const cors = require("cors")
 const app = express()
 const nodemailer = require("nodemailer");
 const mongoose = require("mongoose")
+require("dotenv").config();
 
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect("mongodb+srv://meenakshi:meena123@cluster0.lvaaenk.mongodb.net/passkey?retryWrites=true&w=majority&appName=Cluster0").then(function(){
+mongoose.connect(process.env.MONGO_URI).then(function(){
     console.log("connected to DB")
 }).catch(function(){
     console.log("failed to connect")
@@ -54,7 +55,7 @@ resolve("success")
 }
 catch(error)
 {
-    res.send(fail)
+    res.send("fail")
 }
 
 

@@ -37,10 +37,10 @@ credential.find().then(function(data){
 new Promise(async function(resolve,reject){
 
     try{
-for(i=0;i<emailList.length;i++)
+for( let i=0;i<emailList.length;i++)
 {
 await transporter.sendMail({
-    from:"meenakumara2025@gmail.com",
+    from:data[0].toJSON().user,
     to:emailList[i],
     subject:"A message from Bulk Mail App",
     text:msg
@@ -54,7 +54,7 @@ resolve("success")
 }
 catch(error)
 {
-    res.send("fail")
+    reject(error)
 }
 
 

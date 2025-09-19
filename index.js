@@ -55,7 +55,8 @@ resolve("success")
 }
 catch(error)
 {
-    res.send("fail")
+     console.error("Nodemailer error:", error); 
+    res.send({ success: false, error: error.message });
 }
 
 

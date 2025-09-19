@@ -7,7 +7,7 @@ const mongoose = require("mongoose")
 app.use(cors())
 app.use(express.json())
 
-mongoose.connect("mongodb+srv://meenakshi:meena123@cluster0.lvaaenk.mongodb.net/passkey?retryWrites=true&w=majority&appName=Cluster0").then(function(){
+mongoose.connect("mongodb+srv://meenakshi:meena123@cluster0.lvaaenk.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").then(function(){
     console.log("connected to DB")
 }).catch(function(){
     console.log("failed to connect")
@@ -54,7 +54,7 @@ resolve("success")
 }
 catch(error)
 {
-    res.send(fail)
+    res.send("fail")
 }
 
 
@@ -75,7 +75,7 @@ catch(error)
 
 })
 
-app.use(express.json())
+
 
 app.listen(5000,function(){
     console.log("server started...")
